@@ -1,0 +1,23 @@
+title: Super Highlevel Language (SHL)
+# uncomment baseurl if you want to publish the site to a subfolder
+#baseurl: /blog
+description: Practice for developing a language using C++.
+collections:
+  guides:
+    output: true
+exclude:
+- Gemfile
+- Gemfile.lock
+- .gitignore
+- README.md
+- old_index.adoc
+- deploy
+asciidoc: {}
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  attributes:
+    icons: font
+    idseparator: _
+    stylesdir: css
+    source-highlighter: coderay

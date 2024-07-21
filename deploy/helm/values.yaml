@@ -1,0 +1,19 @@
+container:
+  name: shl-docs
+  port: 4000
+
+deployment:
+  name: shl-docs
+  replicas: 1
+  image:
+    registry: ghci.io/markbrown87
+    name: shl-docs
+    tag: latest
+    pullPolicy: Always
+
+service:
+  name: shl-docs
+
+route:
+  name: shl-docs-ingress-route
+  endpoint: shl.user-docs.example.com

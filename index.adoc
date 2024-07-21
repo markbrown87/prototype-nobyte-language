@@ -1,0 +1,6 @@
+= Super Highlevel Language (SHL) User Docs!
+:showtitle:
+:page-title: Home Page
+:page-description: Landing page for anything SHL related
+
+There will be more information to come here but this lays out the structure. Below is more template information from the template I copied this from.

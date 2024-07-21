@@ -1,0 +1,31 @@
+= Welcome Aboard Chaps!
+:showtitle:
+:page-navtitle: Welcome Aboard!
+:page-excerpt: First post on making a crappy language
+:page-root: ../../../
+
+== It all begins here!
+
+This is my first post here covering the creation of my practice language, wonderfully called "Super Highlevel Language" or SHL for short. This language is for practicing and learning (relearning honestly) about the structures of a coding language.
+This posts will mostly cover my thoughts, progress, and really anything - whenever - I feel.
+
+== Today's Focus?
+
+Well, today's work has been focused around the Lexer. The lexer is the first part of the languages and is the easier part to write. The first stages of this language will be to just handle the smallest amount of Token Types as possible.
+What does this mean though? This mean the SHL, is currently as crappy as it can be. The basic lexer of the SL is Literals (numbers currently), operators ('+' and '-'), and white space. Bare minimum to get something logical out.
+
+Today wasn't just on the basic lexer. Once I finished the tests, and confirmed a simple string can be lexed, I started focusing on the documentation. Hence why today is the first post! Yay me!
+I did also write out documenation for developers that want to help me but I also want to provide a step by step - when possible - of this process so I can hopefully help others OR just revisit it at a later date.
+
+== Progress?
+
+As of today the progress we have the basic lexer, tests, documentation, and project layout. First step towards a language and compiler.
+
+== What Next?
+
+The next major focus of this project is to continue stepping up project/development tools to bundle, lint, format, and other static analysis tools. I really want to make sure this project has
+set the foundation of C++ projects going forward. 
+
+== Last Notes
+
+This project will take some time and I do it after work so I don't always have the most engery. I may make posts or docs for users but I may not. Just bare with me as I go through this process. Lets all learn together! :)
