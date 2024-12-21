@@ -26,5 +26,6 @@ auto main() -> int {
   }
 
   if (!p.analysis(tokens))
-    throw std::runtime_error("File: '" + filename + "' does not grammacially work.");
+    throw std::runtime_error("File: '" + filename +
+                             "' does not grammacially work.");
 }
