@@ -1,6 +1,12 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
+#include <vector>
+
+namespace LXR_NS{
+  struct Token;
+}
+
 // Namespace for Parser
 namespace PSR_NS {
 /*
@@ -11,9 +17,9 @@ public:
   Parser() = default;
 
   /*
-  DOES STUFF
+  Cycle through token list to check for grammar
   */
-  auto analysis() -> void;
+  auto analysis(const std::vector<LXR_NS::Token>&) const noexcept -> bool;
 };
 } // namespace PSR_NS
 
