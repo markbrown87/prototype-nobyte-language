@@ -16,7 +16,8 @@ const std::vector<Token> Lexer::lex(std::stringstream &stream) const noexcept {
     } else if (UTILS_NS::isOperator(tmp_value)) {
       tokens.push_back({{tmp_value}, TokenType::OPERATOR});
     } else if (std::isblank(tmp_value)) {
-      tokens.push_back({{tmp_value}, TokenType::WHITESPACE});
+      // tokens.push_back({{tmp_value}, TokenType::WHITESPACE});
+      //  do nothing and move on
     }
   }
 
