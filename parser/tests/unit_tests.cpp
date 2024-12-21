@@ -1,5 +1,5 @@
-#include "parser.hpp"
 #include "analyzer.hpp"
+#include "parser.hpp"
 #include "token_struct.hpp"
 #include "token_type.hpp"
 
@@ -8,7 +8,7 @@
 using namespace PSR_NS;
 using namespace LXR_NS;
 
-TEST(Analyzer_Class, isIdentifer){
+TEST(Analyzer_Class, isIdentifer) {
   std::string trueVar = "someVariable";
   std::string falseVar = "some3234Variable";
   Anaylzer a;
@@ -17,7 +17,7 @@ TEST(Analyzer_Class, isIdentifer){
   EXPECT_FALSE(a.isIdentifer(falseVar));
 }
 
-TEST(Analyzer_Class, isNumber){
+TEST(Analyzer_Class, isNumber) {
   std::string trueVar = "14";
   std::string falseVar = "b12";
   Anaylzer a;
@@ -26,7 +26,7 @@ TEST(Analyzer_Class, isNumber){
   EXPECT_FALSE(a.isNumber(falseVar));
 }
 
-TEST(Analyzer_Class, isFactor){
+TEST(Analyzer_Class, isFactor) {
   std::string trueVar = "14";
   std::string falseVar = "b12";
   Anaylzer a;
@@ -35,18 +35,18 @@ TEST(Analyzer_Class, isFactor){
   EXPECT_FALSE(a.isFactor(falseVar));
 }
 
-TEST(Analyzer_Class, isExpression){
-  LXR_NS::Token lhs {"2", TokenType::LITERAL};
-  LXR_NS::Token plusOp {"+",TokenType::OPERATOR};
-  LXR_NS::Token minOp {"-", TokenType::OPERATOR};
-  LXR_NS::Token divOp {"/", TokenType::OPERATOR};
-  LXR_NS::Token rhs {"3", TokenType::LITERAL};
-  std::vector<Token> truePlusTokens {lhs, plusOp, rhs};
-  std::vector<Token> trueMinusTokens {lhs, minOp, rhs};
-  std::vector<Token> trueLongTokens {lhs, minOp, rhs, plusOp, rhs};
-  std::vector<Token> falseTokens {lhs, minOp};
-  std::vector<Token> falseDivideTokens {lhs, divOp, rhs};
-  std::vector<Token> falseLongTokens {lhs, minOp, rhs, plusOp, rhs, divOp};
+TEST(Analyzer_Class, isExpression) {
+  LXR_NS::Token lhs{"2", TokenType::LITERAL};
+  LXR_NS::Token plusOp{"+", TokenType::OPERATOR};
+  LXR_NS::Token minOp{"-", TokenType::OPERATOR};
+  LXR_NS::Token divOp{"/", TokenType::OPERATOR};
+  LXR_NS::Token rhs{"3", TokenType::LITERAL};
+  std::vector<Token> truePlusTokens{lhs, plusOp, rhs};
+  std::vector<Token> trueMinusTokens{lhs, minOp, rhs};
+  std::vector<Token> trueLongTokens{lhs, minOp, rhs, plusOp, rhs};
+  std::vector<Token> falseTokens{lhs, minOp};
+  std::vector<Token> falseDivideTokens{lhs, divOp, rhs};
+  std::vector<Token> falseLongTokens{lhs, minOp, rhs, plusOp, rhs, divOp};
   Anaylzer a;
 
   EXPECT_TRUE(a.isExpression(truePlusTokens));
