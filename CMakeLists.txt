@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(SHL VERSION 0.0.1 DESCRIPTION "Compiled Language called Super Highlevel Language or SHL for short! It's a really crappy test language; sorry!")
+project(SHL VERSION 0.0.2 DESCRIPTION "Compiled Language called Super Highlevel Language or SHL for short! It's a really crappy test language; sorry!")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
