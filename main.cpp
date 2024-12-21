@@ -7,7 +7,7 @@
 #include <stdexcept>
 
 auto main() -> int {
-  PSR_NS::Parser p;
+  PSR_NS::Parser p{};
   std::string filename = "examples/step1.shl";
   std::fstream file(filename);
 

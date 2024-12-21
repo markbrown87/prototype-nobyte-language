@@ -14,20 +14,22 @@ public:
   Anaylzer() = default;
 
   // <identifier> "=" <expression>
-  auto isStatement(const std::vector<LXR_NS::Token> &) const noexcept -> bool;
+  [[nodiscard]] auto
+  isStatement(const std::vector<LXR_NS::Token> &) const noexcept -> bool;
 
   // <factor> | <factor> "+" <factor> | <factor> "-" <factor> | <factor> "*"
   // <factor> | <factor> "/" <factor>
-  auto isExpression(const std::vector<LXR_NS::Token> &) const noexcept -> bool;
+  [[nodiscard]] auto
+  isExpression(const std::vector<LXR_NS::Token> &) const noexcept -> bool;
 
   // <number> | "(" <expression> ")"
-  auto isFactor(const std::string &) const noexcept -> bool;
+  [[nodiscard]] auto isFactor(const std::string &) const noexcept -> bool;
 
   // [0-9]+
-  auto isNumber(const std::string &) const noexcept -> bool;
+  [[nodiscard]] auto isNumber(const std::string &) const noexcept -> bool;
 
   // [a-zA-Z]+
-  auto isIdentifer(const std::string &) const noexcept -> bool;
+  [[nodiscard]] auto isIdentifer(const std::string &) const noexcept -> bool;
 };
 } // namespace PSR_NS
 

@@ -1,6 +1,8 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
+#include "analyzer.hpp"
+
 #include <vector>
 
 namespace LXR_NS {
@@ -22,6 +24,9 @@ public:
   */
   [[nodiscard]] auto analysis(const std::vector<LXR_NS::Token> &) const noexcept
       -> bool;
+
+private:
+  Anaylzer helper;
 };
 } // namespace PSR_NS
 
