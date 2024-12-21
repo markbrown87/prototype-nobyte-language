@@ -10,10 +10,12 @@ project(Parser
 
 set(SRC 
     src/parser.cpp
+    src/analyzer.cpp
 ) # Source files
 
 set(INC 
     inc/parser.hpp
+    inc/analyzer.hpp
 ) # Header files
 
 add_library(${PROJECT_NAME} SHARED ${SRC} ${INC})
@@ -35,7 +37,7 @@ add_executable(
     ${TEST_FILES}
 )
 target_link_libraries(${PROJECT_NAME} 
-    Utilities
+    Lexer
 )
 
 

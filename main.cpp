@@ -24,4 +24,7 @@ auto main() -> int {
     std::cout << "Lexer found value: " << value << " of type: " << type
               << std::endl;
   }
+
+  if (!p.analysis(tokens))
+    throw std::runtime_error("File: '" + filename + "' does not grammacially work.");
 }
