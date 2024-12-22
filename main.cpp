@@ -6,9 +6,16 @@
 #include <iostream>
 #include <stdexcept>
 
-auto main() -> int {
-  PSR_NS::Parser p{};
+auto main(int argc, char *argv[]) -> int {
+  // TODO
+  // - Move this to argument parser
   std::string filename = "examples/step1.shl";
+  if (argc > 1 && std::string(argv[1]) == "-f") 
+    filename = argv[2];
+  std::cout << "Compiling File: " << filename << std::endl;
+
+
+  PSR_NS::Parser p{};
   std::fstream file(filename);
 
   if (!file.is_open())
