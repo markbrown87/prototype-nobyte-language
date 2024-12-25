@@ -9,7 +9,6 @@ Abstract Syntax Tree implementation
 class AST {
 public:
   AST() = default;
-
 };
 } // namespace AST_NS
 

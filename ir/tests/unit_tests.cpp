@@ -4,6 +4,4 @@
 
 using namespace ARG_NS;
 
-TEST(IntermediateRepresentation_Class, sample) {
-  EXPECT_TRUE(false);
-}
+TEST(IntermediateRepresentation_Class, sample) { EXPECT_TRUE(false); }

@@ -4,6 +4,4 @@
 
 using namespace ARG_NS;
 
-TEST(AST_Class, sample) {
-  EXPECT_TRUE(false);
-}
+TEST(AST_Class, sample) { EXPECT_TRUE(false); }

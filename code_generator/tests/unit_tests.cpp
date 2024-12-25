@@ -4,6 +4,4 @@
 
 using namespace ARG_NS;
 
-TEST(CodeGenerator_Class, sample) {
-  EXPECT_TRUE(false);
-}
+TEST(CodeGenerator_Class, sample) { EXPECT_TRUE(false); }

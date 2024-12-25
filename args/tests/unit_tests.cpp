@@ -4,6 +4,4 @@
 
 using namespace ARG_NS;
 
-TEST(ArgParser_Class, parse) {
-  EXPECT_TRUE(false);
-}
+TEST(ArgParser_Class, parse) { EXPECT_TRUE(false); }
