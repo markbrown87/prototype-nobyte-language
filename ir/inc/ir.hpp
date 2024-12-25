@@ -9,7 +9,6 @@ Intermediate Representation class and associated functionality
 class IntermediateRepresentation {
 public:
   IntermediateRepresentation() = default;
-
 };
 } // namespace IR_NS
 
