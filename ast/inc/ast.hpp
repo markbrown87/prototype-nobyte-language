@@ -1,7 +1,7 @@
 #ifndef AST_HPP
 #define AST_HPP
 
-// Namespace for Argument Parser
+// Namespace for AST
 namespace AST_NS {
 /*
 Abstract Syntax Tree implementation
