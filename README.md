@@ -1,8 +1,8 @@
-# SHL or Super Highlevel Language
+# NoByte Language
 More information to come in time...
 
-# Practice Language called SHL or Super Highlevel Language (Working title)
-Practice language called Super Highlevel Language (SHL) and won't be very featureful as time passes, sorry! Used for practice to develop a programming language in C++ with all the fun tools in CICD and documentation.
+# Practice Language called NoByte (Working title)
+Practice language called NoByte. Named so after our little dog that just won't stop biting people's anckles. Used for practice to develop a programming language in C++ with all the fun tools in CICD and documentation.
 
 ## Tool Chain
 * [Clang-13](https://github.com/llvm/llvm-project/releases/tag/llvmorg-13.0.1)
@@ -50,7 +50,7 @@ To clean up your workspace of genereated folders/files, just run the clean.sh sc
 User documentation is worked on under the "documentation" branch. Auto deployment has not be setup yet but will be coming in time.
 
 ## Usage
-Once compiled, executing the run.sh is the easiest way to test. Manually, means you just execute "{ROOT}/build/bin/SHL" to create the compiler.
+Once compiled, executing the run.sh is the easiest way to test. Manually, means you just execute "{ROOT}/build/bin/NoByte" to create the compiler.
 
 ## Contributing
 To contribute to this project, just reach out to Mark Brown and he will setup you up to help. If there are issues or suggested improvements, submit them to the issue board backlog. They will be addressed and worked from there.

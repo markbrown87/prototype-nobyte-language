@@ -4,7 +4,7 @@ echo "-------------------------------------"
 echo "Running Project..."
 echo "-------------------------------------"
 
-./build/bin/SHL
+./build/bin/NoByte
 
 echo "-------------------------------------"
 echo "Finished Running Project..."

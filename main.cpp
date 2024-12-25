@@ -9,7 +9,7 @@
 auto main(int argc, char *argv[]) -> int {
   // TODO
   // - Move this to argument parser
-  std::string filename = "examples/step1.shl";
+  std::string filename = "examples/step1.nob";
   if (argc > 1 && std::string(argv[1]) == "-f") 
     filename = argv[2];
   std::cout << "Compiling File: " << filename << std::endl;
