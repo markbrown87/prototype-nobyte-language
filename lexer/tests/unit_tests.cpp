@@ -1,46 +1,54 @@
 #include "lexer.hpp"
+#include "token_struct.hpp"
 
 #include <gtest/gtest.h>
 
-#include <string>
-#include <vector>
-
 using namespace LXR_NS;
 
-TEST(Lexer_Class, lex) {
-  std::string line = "7 + 6 + 8\n";
-  std::stringstream stream(line);
-  std::vector<Token> checkResult = {{"7", TokenType::LITERAL},
-                                    {"+", TokenType::OPERATOR},
-                                    {"6", TokenType::LITERAL},
-                                    {"+", TokenType::OPERATOR},
-                                    {"8", TokenType::LITERAL}};
+TEST(Lexer_Class, getNextToken){
+  std::ifstream file("lexer_testdata.nob");
+  if (!file.is_open())
+    throw std::runtime_error("File: 'lexer_testdata.nob' failed to open.");
+  Lexer lex(std::move(file));
 
-  Lexer lexer;
-  auto retResult = lexer.lex(stream);
+  auto token = lex.getNextToken(); 
+  EXPECT_EQ("x", token.strValue);
+  EXPECT_EQ(TokenType::IDENTIFIER, token.type);
 
-  EXPECT_EQ(retResult.size(), 5);
+  token = lex.getNextToken();
+  EXPECT_EQ("=", token.strValue);
+  EXPECT_EQ(TokenType::OPERATOR, token.type);
 
-  for (auto i = 0; i < retResult.size(); ++i) {
-    EXPECT_EQ(retResult[i].strValue, checkResult[i].strValue);
-    EXPECT_EQ(retResult[i].type, checkResult[i].type);
-  }
+  token = lex.getNextToken();
+  EXPECT_EQ("2", token.strValue);
+  EXPECT_EQ(TokenType::LITERAL, token.type);
+
+  token = lex.getNextToken();
+  EXPECT_EQ("+", token.strValue);
+  EXPECT_EQ(TokenType::OPERATOR, token.type);
+
+  
+  token = lex.getNextToken();
+  EXPECT_EQ("5", token.strValue);
+  EXPECT_EQ(TokenType::LITERAL, token.type);
+
+  
+  token = lex.getNextToken();
+  EXPECT_EQ("print", token.strValue);
+  EXPECT_EQ(TokenType::KEYWORD, token.type);
 }
 
-TEST(Lexer_Class, lex_no_endline_char) {
-  std::string line = "7 - 6";
-  std::stringstream stream(line);
-  std::vector<Token> checkResult = {{"7", TokenType::LITERAL},
-                                    {"-", TokenType::OPERATOR},
-                                    {"6", TokenType::LITERAL}};
+TEST(Lexer_Class, getCurrentToken){
+  std::ifstream file("lexer_testdata.nob");
+  if (!file.is_open())
+    throw std::runtime_error("File: 'lexer_testdata.nob' failed to open.");
+  Lexer lex(std::move(file));
 
-  Lexer lexer;
-  auto retResult = lexer.lex(stream);
+  auto token = lex.getNextToken(); 
+  EXPECT_EQ("x", token.strValue);
+  EXPECT_EQ(TokenType::IDENTIFIER, token.type);
 
-  EXPECT_EQ(retResult.size(), 3);
-
-  for (auto i = 0; i < retResult.size(); ++i) {
-    EXPECT_EQ(retResult[i].strValue, checkResult[i].strValue);
-    EXPECT_EQ(retResult[i].type, checkResult[i].type);
-  }
+  auto currentToken = lex.getCurrentToken();
+  EXPECT_EQ(token.strValue, currentToken.strValue);
+  EXPECT_EQ(token.type, currentToken.type);
 }

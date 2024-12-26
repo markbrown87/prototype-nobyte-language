@@ -1,25 +1,60 @@
 #include "lexer.hpp"
-#include "char_type.hpp"
+#include "token_type.hpp"
 
 #include <cctype>
-#include <sstream>
+#include <memory>
 
 using namespace LXR_NS;
 
-const std::vector<Token> Lexer::lex(std::stringstream &stream) const noexcept {
-  std::vector<Token> tokens;
+Lexer::Lexer(std::ifstream filehandle) : p_file(std::make_unique<std::ifstream>(std::move(filehandle))){}
 
-  char tmp_value;
-  while (stream >> std::noskipws >> tmp_value) {
-    if (std::isdigit(tmp_value)) {
-      tokens.push_back({{tmp_value}, TokenType::LITERAL});
-    } else if (UTILS_NS::isOperator(tmp_value)) {
-      tokens.push_back({{tmp_value}, TokenType::OPERATOR});
-    } else if (std::isblank(tmp_value)) {
-      // tokens.push_back({{tmp_value}, TokenType::WHITESPACE});
-      //  do nothing and move on
-    }
+auto Lexer::getNextToken() noexcept -> const Token&{
+  char tmp = EOF;
+
+  p_file->get(tmp);
+
+  if (p_file->eof()){
+    m_currentToken.strValue = "EOF";
+    m_currentToken.type = TokenType::EoF;
   }
 
-  return tokens;
+  while(std::isspace(tmp) || tmp == '\n')
+    p_file->get(tmp);
+
+  if(tmp == '=' || tmp == '+' || tmp == '-' || tmp == '*' || tmp == '/'){
+    m_currentToken.strValue = tmp;
+    m_currentToken.type = TokenType::OPERATOR;
+  }
+
+  if(std::isalpha(tmp)){
+    std::string identifier{tmp};
+    p_file->get(tmp);
+    while(std::isalnum(tmp) && !p_file->eof()){
+      identifier += tmp;
+      p_file->get(tmp);
+    }
+
+    m_currentToken.strValue = identifier;
+    m_currentToken.type = TokenType::IDENTIFIER;
+
+    if(identifier == "def" || identifier == "print")
+      m_currentToken.type = TokenType::KEYWORD;
+  }
+
+  if(std::isdigit(tmp) || tmp == '.'){
+    std::string identifier;
+    do{
+      identifier += tmp;
+      p_file->get(tmp);
+    } while(std::isdigit(tmp) || tmp == '.');
+
+    m_currentToken.strValue = identifier;
+    m_currentToken.type = TokenType::LITERAL;
+  }
+
+  return m_currentToken;
+}
+
+auto Lexer::getCurrentToken() noexcept -> const Token&{
+  return m_currentToken;
 }

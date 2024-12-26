@@ -14,7 +14,8 @@ enum TokenType {
   OPERATOR,   // Operate on arguments and produce results --> i.e. '+', '-'
   LITERAL,    // Numeric, logical, textual, and reference literals
   COMMENT,    // Line/block comments
-  WHITESPACE  // Non printable chars
+  // WHITESPACE, // Non printable chars
+  EoF         // End of File
 };
 } // namespace LXR_NS
 
