@@ -37,9 +37,13 @@ add_executable(
     ${TEST_FILES}
 )
 target_link_libraries(${PROJECT_NAME} 
-    Utilities
 )
 
+add_custom_command(
+    TARGET ${PROJECT_NAME}_tests
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/tests/lexer_testdata.nob" "${CMAKE_BINARY_DIR}/lexer"
+)
 
 target_link_libraries(${TEST_NAME} PRIVATE gtest::gtest ${PROJECT_NAME})
 target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
