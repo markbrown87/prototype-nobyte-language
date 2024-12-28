@@ -10,8 +10,8 @@ namespace LXR_NS {
 Token Data structure
 */
 struct Token {
-  std::string strValue;
-  TokenType type;
+  std::string strValue{""};
+  TokenType type{TokenType::COMMENT};
 };
 } // namespace LXR_NS
 

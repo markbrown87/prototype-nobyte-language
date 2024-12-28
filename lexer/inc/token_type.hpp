@@ -15,7 +15,7 @@ enum TokenType {
   LITERAL,    // Numeric, logical, textual, and reference literals
   COMMENT,    // Line/block comments
   // WHITESPACE, // Non printable chars
-  EoF         // End of File
+  EoF // End of File
 };
 } // namespace LXR_NS
 

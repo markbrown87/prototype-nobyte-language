@@ -5,13 +5,13 @@
 
 using namespace LXR_NS;
 
-TEST(Lexer_Class, getNextToken){
+TEST(Lexer_Class, getNextToken) {
   std::ifstream file("lexer_testdata.nob");
   if (!file.is_open())
     throw std::runtime_error("File: 'lexer_testdata.nob' failed to open.");
   Lexer lex(std::move(file));
 
-  auto token = lex.getNextToken(); 
+  auto token = lex.getNextToken();
   EXPECT_EQ("x", token.strValue);
   EXPECT_EQ(TokenType::IDENTIFIER, token.type);
 
@@ -27,24 +27,22 @@ TEST(Lexer_Class, getNextToken){
   EXPECT_EQ("+", token.strValue);
   EXPECT_EQ(TokenType::OPERATOR, token.type);
 
-  
   token = lex.getNextToken();
   EXPECT_EQ("5", token.strValue);
   EXPECT_EQ(TokenType::LITERAL, token.type);
 
-  
   token = lex.getNextToken();
   EXPECT_EQ("print", token.strValue);
   EXPECT_EQ(TokenType::KEYWORD, token.type);
 }
 
-TEST(Lexer_Class, getCurrentToken){
+TEST(Lexer_Class, getCurrentToken) {
   std::ifstream file("lexer_testdata.nob");
   if (!file.is_open())
     throw std::runtime_error("File: 'lexer_testdata.nob' failed to open.");
   Lexer lex(std::move(file));
 
-  auto token = lex.getNextToken(); 
+  auto token = lex.getNextToken();
   EXPECT_EQ("x", token.strValue);
   EXPECT_EQ(TokenType::IDENTIFIER, token.type);
 

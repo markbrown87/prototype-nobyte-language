@@ -14,25 +14,23 @@ Lexer class that parses and creates an array of tokens
 class Lexer {
 public:
   Lexer() = delete;
-  ~Lexer() {
-    p_file.reset();
-  }
+  ~Lexer() { p_file.reset(); }
   Lexer(std::ifstream filehandle);
-  Lexer(const Lexer&) = delete;
-  Lexer& operator=(const Lexer&) = delete;
-  Lexer(Lexer&& other) : p_file(std::move(other.p_file)) {}
-  Lexer& operator=(Lexer&& other) {
+  Lexer(const Lexer &) = delete;
+  auto operator=(const Lexer &) -> Lexer & = delete;
+  Lexer(Lexer &&other) : p_file(std::move(other.p_file)) {}
+  auto operator=(Lexer &&other) -> Lexer & {
     p_file = std::move(other.p_file);
     return *this;
   }
 
   // Gets the next token in the file
-  auto getNextToken() noexcept -> const Token&;
+  auto getNextToken() noexcept -> const Token &;
 
   // Get the current token
-  auto getCurrentToken() noexcept -> const Token&;
+  auto getCurrentToken() noexcept -> const Token &;
 
-  private:
+private:
   Token m_currentToken;
   std::unique_ptr<std::ifstream> p_file;
 };
