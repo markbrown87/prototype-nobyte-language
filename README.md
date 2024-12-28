@@ -5,7 +5,7 @@ More information to come in time...
 Practice language called NoByte. Named so after our little dog that just won't stop biting people's anckles. Used for practice to develop a programming language in C++ with all the fun tools in CICD and documentation.
 
 ## Tool Chain
-* [Clang-13](https://github.com/llvm/llvm-project/releases/tag/llvmorg-13.0.1)
+* [Clang-18](https://github.com/llvm/llvm-project/releases/tag/llvmorg-18.1.8)
 * [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy/)
 * [Clang-Format](https://clang.llvm.org/docs/ClangFormat.html)
 * [Valgrind](https://valgrind.org/downloads/)
@@ -14,6 +14,12 @@ Practice language called NoByte. Named so after our little dog that just won't s
 * [Conan2](https://conan.io/downloads)
 * [Conan_Package:GTest](https://conan.io/center/recipes/gtest?version=1.14.0)
 * [Git](https://git-scm.com/downloads)
+
+For installing LLVM, it is faster to use the [LLVM script](https://apt.llvm.org/llvm.sh) to get all the tools used. 
+
+_Note: The above script is targetting Ubuntu/Debian so if you're using another image, then it's best to install them manually._ 
+
+Here is a quick one liner if you're feeling brave: `wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && sudo ./llvm.sh 18 all`
 
 ## Development
 ### Definition of Done
