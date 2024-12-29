@@ -6,9 +6,9 @@
 using namespace LXR_NS;
 
 TEST(Lexer_Class, getNextToken) {
-  std::ifstream file("lexer_testdata.nob");
+  std::ifstream file("../testdata/step1.nob");
   if (!file.is_open())
-    throw std::runtime_error("File: 'lexer_testdata.nob' failed to open.");
+    throw std::runtime_error("File: 'step1.nob' failed to open.");
   Lexer lex(std::move(file));
 
   auto token = lex.getNextToken();
@@ -20,26 +20,18 @@ TEST(Lexer_Class, getNextToken) {
   EXPECT_EQ(TokenType::OPERATOR, token.type);
 
   token = lex.getNextToken();
-  EXPECT_EQ("2", token.strValue);
+  EXPECT_EQ("1", token.strValue);
   EXPECT_EQ(TokenType::LITERAL, token.type);
-
-  token = lex.getNextToken();
-  EXPECT_EQ("+", token.strValue);
-  EXPECT_EQ(TokenType::OPERATOR, token.type);
-
-  token = lex.getNextToken();
-  EXPECT_EQ("5", token.strValue);
-  EXPECT_EQ(TokenType::LITERAL, token.type);
-
+  
   token = lex.getNextToken();
   EXPECT_EQ("print", token.strValue);
   EXPECT_EQ(TokenType::KEYWORD, token.type);
 }
 
 TEST(Lexer_Class, getCurrentToken) {
-  std::ifstream file("lexer_testdata.nob");
+  std::ifstream file("../testdata/step1.nob");
   if (!file.is_open())
-    throw std::runtime_error("File: 'lexer_testdata.nob' failed to open.");
+    throw std::runtime_error("File: '../testdata/step1.nob' failed to open.");
   Lexer lex(std::move(file));
 
   auto token = lex.getNextToken();

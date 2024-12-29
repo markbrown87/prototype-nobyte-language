@@ -1,9 +1,14 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
-#include "analyzer.hpp"
+#include "lexer.hpp"
 
-#include <vector>
+#include <memory>
+
+namespace AST_NS{
+class ExpressionInterface;
+class LiteralNode;
+}
 
 namespace LXR_NS {
 struct Token;
@@ -17,16 +22,30 @@ structure of the code and creates the AST.
 */
 class Parser {
 public:
-  Parser() = default;
+  Parser() = delete;
+  Parser(const Parser&) = delete;
+  auto operator=(const Parser&) -> Parser& = delete;
+  Parser(std::unique_ptr<LXR_NS::Lexer>);
+  ~Parser();
+  Parser(Parser&&);
+  auto operator=(Parser&&) -> Parser&;
 
-  /*
-  Cycle through token list to check for grammar
-  */
-  [[nodiscard]] auto analysis(const std::vector<LXR_NS::Token> &) const noexcept
-      -> bool;
+  auto process() -> int;
 
-private:
-  Anaylzer helper;
+  private:
+
+  auto statement() -> void;
+
+  auto identifier() -> void;
+
+  auto expression() -> void;
+
+  auto numeral() -> void;
+
+  auto literal(const LXR_NS::Token& token) -> std::unique_ptr<AST_NS::LiteralNode>;
+
+  std::unique_ptr<LXR_NS::Lexer> p_lexer{};
+  std::unique_ptr<AST_NS::ExpressionInterface> p_ast{};
 };
 } // namespace PSR_NS
 

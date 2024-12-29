@@ -3,10 +3,16 @@
 #include <gtest/gtest.h>
 
 #include <string>
-#include <vector>
 
 using namespace STB_NS;
 
-TEST(SymbolTable_Class, insert) { EXPECT_TRUE(false); }
+TEST(SymbolTable_Class, insert_lookup) { 
+    SymbolTable st;
 
-TEST(SymbolTable_Class, print_table) { EXPECT_TRUE(false); }
+    Symbol s{"x", "5"};
+    std::string ns = "global";
+
+    st.insert(ns, s);
+
+    EXPECT_EQ(st.lookup(ns, s.key).value, s.value);
+}
