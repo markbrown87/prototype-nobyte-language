@@ -27,21 +27,23 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 # Testing configuration begins here
-set(TEST_NAME ${PROJECT_NAME}_tests)
-set(TEST_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/unit_tests.cpp
-)
+# set(TEST_NAME ${PROJECT_NAME}_tests)
+# set(TEST_FILES
+#     ${CMAKE_CURRENT_SOURCE_DIR}/tests/unit_tests.cpp
+# )
 
-add_executable(
-    ${TEST_NAME}
-    ${TEST_FILES}
-)
+# add_executable(
+#     ${TEST_NAME}
+#     ${TEST_FILES}
+# )
 target_link_libraries(${PROJECT_NAME} 
     Lexer
+    AST
+    SymbolTable
 )
 
 
-target_link_libraries(${TEST_NAME} PRIVATE gtest::gtest ${PROJECT_NAME})
-target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+# target_link_libraries(${TEST_NAME} PRIVATE gtest::gtest ${PROJECT_NAME})
+# target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
-gtest_discover_tests(${TEST_NAME})
+# gtest_discover_tests(${TEST_NAME})

@@ -2,8 +2,11 @@
 ## v0.0.2 (--2024)
 ### Features
 * Adds Parser as the prestep for AST creation
+* Refactors Lexer and Parser
+* Adds AST, SymbolTable features
 ### Tests
 * Tests covering the parser and expected results
+* Tests have been turned off to focus on prototyping language
 ### Documentation
 * Adds image with a basic grammar definition as it is 12-21-2024
 

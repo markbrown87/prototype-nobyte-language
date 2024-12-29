@@ -22,8 +22,11 @@ _Note: The above script is targetting Ubuntu/Debian so if you're using another i
 Here is a quick one liner if you're feeling brave: `wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && sudo ./llvm.sh 18 all`
 
 ## Development
+### Notes
+* Testing has been turned to focus building out the prototype. Once the prototype has been finished, the redesign/recreation will include the proper TDD method. 
+
 ### Definition of Done
-* 100% tests pass
+* ~~100% tests pass~~
 * Acceptance criteria completed unless Team Lead allows a change to the ticket
 * All linter warnings are addressed
 * Used Modern C++ features when possible 

@@ -27,6 +27,11 @@ auto Lexer::getNextToken() noexcept -> const Token & {
     m_currentToken.type = TokenType::OPERATOR;
   }
 
+  if (tmp == '{' || tmp == '}' || tmp == '(' || tmp == ')' || tmp == ':') {
+    m_currentToken.strValue = tmp;
+    m_currentToken.type = TokenType::SEPARATOR;
+  }
+
   if (std::isalpha(tmp)) {
     std::string identifier{tmp};
     p_file->get(tmp);

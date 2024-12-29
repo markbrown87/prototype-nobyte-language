@@ -2,6 +2,6 @@
 
 #include <gtest/gtest.h>
 
-using namespace ARG_NS;
+using namespace AST_NS;
 
 TEST(AST_Class, sample) { EXPECT_TRUE(false); }

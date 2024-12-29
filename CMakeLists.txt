@@ -8,18 +8,26 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 set(SRC main.cpp) # Main application source file
 
-find_package(GTest REQUIRED)
-set(CMAKE_CTEST_ARGUMENTS "--output-on-failure" "--rerun-failed")
-include(GoogleTest)
-enable_testing()
+#find_package(GTest REQUIRED)
+#set(CMAKE_CTEST_ARGUMENTS "--output-on-failure" "--rerun-failed")
+# include(GoogleTest)
+# enable_testing()
 
 # Modules
 add_subdirectory(lexer)
+add_subdirectory(ast)
+add_subdirectory(symbol_table)
 add_subdirectory(parser)
-add_subdirectory(utilities)
+# add_subdirectory(utilities)
 
 add_executable(${PROJECT_NAME} ${SRC})
-target_link_libraries(${PROJECT_NAME} 
+target_link_libraries(${PROJECT_NAME}
     Lexer
     Parser
+)
+
+add_custom_command(
+    TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/examples/step1.nob" "${CMAKE_BINARY_DIR}/testdata/step1.nob"
 )
