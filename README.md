@@ -23,7 +23,7 @@ Here is a quick one liner if you're feeling brave: `wget https://apt.llvm.org/ll
 
 ## Development
 ### Notes
-* Testing has been turned to focus building out the prototype. Once the prototype has been finished, the redesign/recreation will include the proper TDD method. 
+* Testing has been turned off to focus building out the prototype. Once the prototype has been finished, the redesign/recreation will include the proper TDD method. 
 
 ### Definition of Done
 * ~~100% tests pass~~
