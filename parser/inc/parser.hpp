@@ -1,13 +1,17 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
+#include "analyzer.hpp"
+#include "ast.hpp"
 #include "lexer.hpp"
+#include "table.hpp"
 
 #include <memory>
 
 namespace AST_NS{
 class ExpressionInterface;
 class LiteralNode;
+class NumeralNode;
 }
 
 namespace LXR_NS {
@@ -38,14 +42,16 @@ public:
 
   auto identifier() -> void;
 
-  auto expression() -> void;
+  auto expression() -> std::unique_ptr<AST_NS::ExpressionInterface>;
 
-  auto numeral() -> void;
+  auto numeral() -> std::unique_ptr<AST_NS::NumeralNode>;
 
-  auto literal(const LXR_NS::Token& token) -> std::unique_ptr<AST_NS::LiteralNode>;
+  auto literal() -> std::unique_ptr<AST_NS::LiteralNode>;
 
   std::unique_ptr<LXR_NS::Lexer> p_lexer{};
   std::unique_ptr<AST_NS::ExpressionInterface> p_ast{};
+  std::unique_ptr<STB_NS::SymbolTable> p_symbolTable{};
+  Anaylzer m_analyzer;
 };
 } // namespace PSR_NS
 
