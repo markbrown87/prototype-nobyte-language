@@ -3,6 +3,7 @@
 
 #include <cctype>
 #include <memory>
+#include <iostream>
 
 using namespace LXR_NS;
 
@@ -52,7 +53,7 @@ auto Lexer::getNextToken() noexcept -> const Token & {
     do {
       identifier += tmp;
       p_file->get(tmp);
-    } while (std::isdigit(tmp) || tmp == '.');
+    } while ((std::isdigit(tmp) || tmp == '.') && !p_file->eof());
 
     m_currentToken.strValue = identifier;
     m_currentToken.type = TokenType::LITERAL;
